@@ -1,3 +1,4 @@
+
 <%@ page language="java" import="java.util.*" pageEncoding="gb2312"%>
 <%
 String path = request.getContextPath();
@@ -16,7 +17,7 @@ var message=document.getElementById("myDiv").innerHTML;
 var win1 = new Zapatec.AlertWindow(message, {title:strTitle, modal:true, width : 580,height:330});
 }
 function doCheck2() {
-if(form1.studid.value!="") {
+if(register.studid.value!="") {
 document.getElementById("studidin").innerHTML = "√";
 
 }
@@ -25,7 +26,7 @@ document.getElementById("studidin").innerHTML = "please input your memberId";
 }
 }
 function doCheck3() {
-if(form1.studid.value!="") {
+if(register.studid.value!="") {
 document.getElementById("useridin").innerHTML = "√";
 
 }
@@ -35,7 +36,7 @@ document.getElementById("useridin").innerHTML = "please input your email";
 }
 function check1()
 {
-if(form1.password.value=="")
+if(register.password.value=="")
 {
 document.getElementById("passin").innerHTML = "The password cannot be empty";
 }
@@ -46,13 +47,13 @@ document.getElementById("passin").innerHTML = "√";
 }
 function check2()
 {
-if(form1.repassword.value=="")
+if(register.repassword.value=="")
 {
 document.getElementById("repassin").innerHTML = "please re-type the password";
 }
 else
 {
-if(form1.repassword.value != form1.password.value)
+if(register.repassword.value != register.password.value)
 document.getElementById("repassin").innerHTML = "Password mis-match";
 else
 document.getElementById("repassin").innerHTML = "√";
@@ -61,7 +62,7 @@ document.getElementById("repassin").innerHTML = "√";
 } 
 </script>
 <style type="text/css">
-<!--
+
 .style1 {font-family: Arial, Helvetica, sans-serif}
 .style3 {
 font-size: 36px;
@@ -96,12 +97,11 @@ color: #FF0000;
 font-family: Arial, Helvetica, sans-serif;
 font-size: 16px;
 }
--->
 </style>
 </head>
 
 <body>
-<form id="form1" name="form1" method="post" action="">
+<form id="register" name="register" method="post" action="..\registerCl?choose=register">
  <table width="898" border="1" bordercolor="#FFFFFF" bgcolor="#FFFFFF">
  <tr>
    <td height="51" colspan="3">&nbsp;</td>
@@ -129,7 +129,7 @@ Information: </td>
  </tr>
  <tr>
    <td>Member ID<span class="style13">*</span></td>
-   <td colspan="3"><input type="text" name="textfield23" tabindex="Name" />
+   <td colspan="3"><input type="text" name="memberid" tabindex="Name" />
      <span class="style6">The Social Number </span></td>
    </tr>
  <tr>
@@ -138,7 +138,7 @@ Information: </td>
    </span></td>
    <td width="259"><span class="style7">
      <label>
-     <input type="text" name="textfield2" tabindex="Name" size="30"/>
+     <input type="text" name="firstname" tabindex="Name" size="30"/>
      </label>
    </span></td>
    <td width="134"><span class="style7">
@@ -147,7 +147,7 @@ Information: </td>
    </span></td>
    <td width="340"><span class="style7">
      <label>
-     <input type="text" name="textfield22" tabindex="Name" size="30"/>
+     <input type="text" name="lastname" tabindex="Name" size="30"/>
      </label>
    </span></td>
  </tr>
@@ -157,15 +157,15 @@ Information: </td>
    </span></td>
    <td><span class="style7">
      <label>
-     <input name="textfield3" type="text" tabindex="Last Name" value="">
+     <input name="birthday" type="text" tabindex="birthday" value="">
      </label>
      <span class="style6">(YYYYMMDD) </span></span></td>
    <td>Gender<span class="style5">*</span></td>
    <td><span class="style7">
      <label>
-     <input name="radiobutton" type="radio" value="radiobutton" />
+     <input name="gender" type="radio" value="female" />
 Female
-<input name="radiobutton" type="radio" value="radiobutton" />
+<input name="gender" type="radio" value="male" />
 Male </label>
    </span></td>
  </tr>
@@ -175,7 +175,7 @@ Male </label>
    </span></td>
    <td><span class="style7">
      <label>
-     <input type="text" name="textfield6" size="30"/>
+     <input type="text" name="email" size="30"/>
      </label>
      <label></label>
    </span></td>
@@ -191,21 +191,21 @@ Male </label>
    <td><span class="style7">
      <label>Address<span class="style5">* </span></label>
    </span></td>
-   <td colspan="3"><input name="textfield63" type="text" value="" size="75"></td>
+   <td colspan="3"><input name="address" type="text" value="" size="75"></td>
    </tr>
  <tr>
    <td><span class="style7">City</span><span class="style13">*</span></td>
-   <td><input type="text" name="textfield6323" /></td>
+   <td><input type="text" name="city" /></td>
    <td><span class="style7">Postal Code<span class="style5">* </span></span><span class="style10"> </span><span class="style12"> </span><span class="style10"> </span><span class="style1"></span></td>
    <td><span class="style7">
-     <input type="text" name="textfield6322" />
+     <input type="text" name="postalcode" />
    </span></td>
  </tr>
  <tr>
    <td>Country<span class="style5">*</span></td>
    <td><span class="style7">
      <label>
-     <input type="text" name="textfield632" />
+     <input type="text" name="country" />
      </label>
    </span> </td>
    <td>&nbsp;</td>
@@ -258,7 +258,7 @@ Male </label>
  <tr>
    <td colspan="4"><span class="style7">
      <label>
-     <input type="checkbox" name="checkbox" value="checkbox">
+     <input type="checkbox" name="agreement" value="checkbox">
 I agree with these terms.&nbsp;<span class="style5">* </span></label>
    </span> </td>
  </tr>
