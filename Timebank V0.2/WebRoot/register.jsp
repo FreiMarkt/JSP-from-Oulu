@@ -9,7 +9,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Sign up</title>
+<link href="jquery-ui_themes_smoothness.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<link type="text/css" rel="Stylesheet" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.6/themes/smoothness/jquery-ui.css" />
+<style type="text/css">
+.ui-datepicker {
+    background: #666666;
+    border: 1px solid #555;
+    color: #EEE;
+}
+</style>
+<style type="text/css">
+<!--
+.style1 {
+	font-size: 24px;
+	font-weight: bold;
+}
+.style2 {color: #999999}
+.style3 {color: #FF0000}
+-->
+</style>
 <script type="text/javascript" src="scripts/ajax.js"> </script>
+<script type="text/javascript" src="
+http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">
+</script>
+<script type="text/javascript" src="
+http://ajax.microsoft.com/ajax/jquery.ui/1.8.6/jquery-ui.min.js">
+</script>
 <script type="text/javascript">
 function myAlert(strTitle) {
 var message=document.getElementById("myDiv").innerHTML;
@@ -17,7 +45,7 @@ var win1 = new Zapatec.AlertWindow(message, {title:strTitle, modal:true, width :
 }
 function doCheck2() {
 if(register.studid.value!="") {
-document.getElementById("studidin").innerHTML = "¡Ì";
+document.getElementById("studidin").innerHTML = "âˆš";
 
 }
 else {
@@ -26,7 +54,7 @@ document.getElementById("studidin").innerHTML = "please input your memberId";
 }
 function doCheck3() {
 if(register.studid.value!="") {
-document.getElementById("useridin").innerHTML = "¡Ì";
+document.getElementById("useridin").innerHTML = "âˆš";
 
 }
 else {
@@ -41,7 +69,7 @@ document.getElementById("passin").innerHTML = "The password cannot be empty";
 }
 else
 {
-document.getElementById("passin").innerHTML = "¡Ì";
+document.getElementById("passin").innerHTML = "âˆš";
 }
 }
 function check2()
@@ -55,10 +83,29 @@ else
 if(register.repassword.value != register.password.value)
 document.getElementById("repassin").innerHTML = "Password mis-match";
 else
-document.getElementById("repassin").innerHTML = "¡Ì";
+document.getElementById("repassin").innerHTML = "âˆš";
 
 }
 } 
+
+$(function () {
+        $("#datepic").datepicker();
+    });
+    
+$(document).ready(function() {
+$( "#datepicker1" ).datepicker({ minDate: "-80Y+1M+7D", maxDate: "1Y+1M+7D",
+changeMonth: true, changeYear: true,
+numberOfMonths:1,
+dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+dateFormat:"yy-mm-dd",
+showAnim:"blind" });//fold, slide, blind, bounce, slideDown, show, fadeIn, clip.
+$( "#datepicker2" ).datepicker({ minDate:"-80Y+1M+7D", maxDate: "1Y+1M+7D",
+changeMonth: true, changeYear: true,
+numberOfMonths:1,
+dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+dateFormat:"yy-mm-dd",
+showAnim:"fold" });//fold, slide, blind, bounce, slideDown, show, fadeIn, clip.
+});
 </script>
 <style type="text/css">
 
@@ -154,12 +201,8 @@ Information: </td>
    <td><span class="style7">
      <label>Birth Date<span class="style5">*</span></label>
    </span></td>
-   <td><span class="style7">
-     <label>
-     <input name="birthday" type="text" tabindex="birthday" value="">
-     </label>
-     <span class="style6">(YYYYMMDD) </span></span></td>
-  <tr>
+   <td><input type="text" id="datepicker1" name="birthday"/></td>
+  
 <td align="left">Gender</td>
 <td><input name="gender" type="radio" value="male" checked>Male
 <input name="gender" type="radio"value="female">Female</td>
@@ -172,6 +215,15 @@ Information: </td>
    <td><span class="style7">
      <label>
      <input type="text" name="email" size="30"/>
+     </label>
+     <label></label>
+   </span></td>
+    <td><span class="style7">
+     <label>Phone Number<span class="style5">* </span></label>
+   </span></td>
+   <td><span class="style7">
+     <label>
+     <input type="text" name="phonenumber" size="30"/>
      </label>
      <label></label>
    </span></td>
