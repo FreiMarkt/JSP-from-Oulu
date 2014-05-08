@@ -32,68 +32,84 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <p>&nbsp;</p>
 	<div align="center">
-	  <table width="683" border="1" align="center" bordercolor="#FFFFFF">
+	  <table width="550" border="1" align="center" bordercolor="#339900" bgcolor="#339900">
 	    <tr>
-	      <td width="91"><div align="center">Profile</div></td>
-		  <td width="104"><div align="center">Jobs Status </div></td>
-		  <td width="101"><div align="center">Products Status </div></td>
-		  <td width="91"><div align="center">Settings</div></td>
-		  <td width="78"><div align="center">Help</div></td>
-	      <td width="81"><div align="center">FAQ</div></td>
-	      <td width="91"><div align="center">Logout</div></td>
+	      <td width="91"><div align="center" class="style11"><a href="Homepage.jsp">Home</a></div></td>
+	      <td width="91"><div align="center" class="style11">Profile</div></td>
+		  <td width="81"><div align="center" class="style11"><a href="http://sfdj14.inf.unibz.it:8080/news.html">News</a></div></td>
+		  <td width="81"><div align="center" class="style11"><a href="http://sfdj14.inf.unibz.it:8080/faq.html">FAQ</a></div></td>
+		  <td width="78"><div align="center" class="style11">Help</div></td>
+	      <td width="91"><div align="center" class="style11">Sign out</div></td>
 	    </tr>
-      </table>
+  </table>
 </div>
 <p align="center">&nbsp;</p>
 <p align="center" class="style1">New Product Detail  </p>
+<form action="products/productinsert.jsp" method="post">
 <table width="525" border="1" align="center" bordercolor="#FFFFFF">
+<tr>
+    <td width="159">Seller ID</td>
+    <td colspan="2"><input name="sellerid" type="text" size="35"></td>
+  </tr>
+<tr>
+    <td width="159">Product ID</td>
+    <td colspan="2"><input name="productid" type="text" size="35"></td>
+  </tr>
   <tr>
     <td><label>Product Category</label></td>
-    <td colspan="2"><select name="select">
+    <td colspan="2"><select name="productcategory">
+    <option value="Food">Food</option>
+    <option value="Beverage">Beverage</option>
+    <option value="Media">Media</option>
+    <option value="Retail">Retail</option>
+    <option value="Health">Health</option>
+    <option value="Telecommunications">Telecommunications</option>
+    <option value="Sports">Sports</option>
+    <option value="Technology">Technology</option>
     </select></td>
   </tr>
   <tr>
     <td width="159">Product Name</td>
-    <td colspan="2"><input name="textfield3" type="text" size="35"></td>
+    <td colspan="2"><input name="productname" type="text" size="35"></td>
   </tr><tr>
     <td><label>BiX</label></td>
-    <td colspan="2"><input type="text" name="textfield2"> 
+    <td colspan="2"><input type="text" name="producttimechecks"> 
       <span class="style2">(Ex. 5:00)</span></td>
   </tr>
   <tr>
-    <td>Number Avaliable:</td>
-    <td colspan="2"><input type="text" name="textfield23"></td> </tr>
+    <td>Number Available:</td>
+    <td colspan="2"><input type="text" name="numberavailable"></td> </tr>
   <tr>
     <td height="26">Status: </td>
     <td width="85"><label>
-      <input type="radio" name="RadioGroup1" value="radio">
+      <input type="radio" name="productcondition" value="new">
 New</label>
       <label></label>
     <label></label></td>
     <td width="259"><label>
-      <input type="radio" name="RadioGroup1" value="radio">
+      <input type="radio" name="productcondition" value="used">
 Used</label></td></tr>
   <tr>
     <td height="26">Shipping: </td>
     <td><label>
-      <input type="radio" name="RadioGroup2" value="radio">
+      <input type="radio" name="shippingcondition" value="included">
 Included </label>
       <label></label>
 <label></label></td>
-    <td><input type="radio" name="RadioGroup2" value="radio">
+    <td><input type="radio" name="shippingcondition" value="not-included">
 Not-Included</td></tr>
   <tr>
     <td width="159">Shipping Cost(BiX):    </td>
     <td colspan="2"><label>
-      <input type="text" name="textfield22">
+      <input type="text" name="shippingcost">
     </label></td></tr>
   <tr>
     <td>Delivery Duration </td>
-    <td colspan="2"><input type="text" name="textfield">    </td>
+    <td colspan="2"><input type="text" name="deliveryduration">    </td>
   </tr>
   <tr>
     <td height="111"><label>Description</label></td>
-    <td colspan="2"><textarea name="textarea" cols="45" rows="10"></textarea></td>
+    <td colspan="2"><textarea name="productdescription" cols="45" rows="10"></textarea></td>
   </tr>
   <tr>
     <td height="28"><label>Image</label></td>
@@ -106,8 +122,6 @@ Not-Included</td></tr>
       <input type="checkbox" name="checkbox" value="checkbox">
 Check here to verify above information.<span class="style3">*</span></td>
   </tr>
-</table>
-<table width="145" border="1" align="center" bordercolor="#FFFFFF">
   <tr>
     <td width="73"><span class="style7">
       <input name="submit" type="submit" value="Continue">
@@ -117,5 +131,6 @@ Check here to verify above information.<span class="style3">*</span></td>
     </span></td>
   </tr>
 </table>
+</form>
 
 </html>
